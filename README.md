@@ -1,4 +1,4 @@
-# Unofficial Mailchimp API nodes for Node-RED.
+# Unofficial PayPal API nodes for Node-RED.
 
 [![Platform](https://img.shields.io/badge/platform-Node--RED-red)](https://nodered.org)
 
@@ -6,7 +6,7 @@ This module provides a set of nodes for Node-RED to quickly create integration f
 
 # Installation
 
-[![NPM](https://nodei.co/npm/node-red-contrib-you-sap-service-layer.png?downloads=true)](https://nodei.co/npm/node-red-contrib-you-sap-service-layer/)
+[![NPM](https://nodei.co/npm/node-red-contrib-you-paypal.png?downloads=true)](https://nodei.co/npm/node-red-contrib-you-paypal/)
 
 You can install the nodes using node-red's "Manage palette" in the side bar.
 
@@ -31,11 +31,11 @@ Changes can be followed [here](/CHANGELOG.md).
 ### Authentication
 
 To use this Paypal APIs, you need a PayPal's Developer account.
-Into the category "My Apps & Credentials" get the Client ID and the Client Secret og the registered app you want to use.
+Into the category "My Apps & Credentials" get the Client ID and the Client Secret of the registered app you want to use.
 
 ### PayPal API (node apiPaypal)
 
-Use this node to execute Marketing API
+Use this node to execute Paypal API
 
 1. Select a Resource to work with
 2. Select an Action to operate on this Resouce
