@@ -1,0 +1,80 @@
+<script type="text/javascript">
+    RED.nodes.registerType('authenticatePaypal',{
+      category: 'PayPal',
+      color: '#005ea6',
+      labelStyle: "white-text",
+      defaults: {
+        name: {value: ''}
+      },
+      credentials: {
+        clientId: {type: "string"}, 
+        clientSecret: {type:"password"}
+      },
+      inputs:1,
+      outputs:1,
+      icon: 'font-awesome/fa-lock',
+      label: function() {
+        return this.name||"Paypal authenticate";
+      }
+    });
+  </script>
+    
+  <script type="text/html" data-template-name="authenticatePaypal">
+    <div class="form-row">
+      <label for="node-input-name"><i class="fa fa-tag"></i> Name </label>
+      <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+  
+    <div class="form-row">
+      <label for="node-input-clientId"><i class="fa fa-tag"></i> Client ID </label>
+      <input type="text" id="node-input-clientId" placeholder="Client ID">
+    </div>
+  
+    <div class="form-row">
+      <label for="node-input-clientSecret"><i class="fa fa-lock"></i> Client Secret </label>
+      <input type="password" id="node-input-clientSecret" placeholder="Client Secret">
+    </div>
+  </script>
+
+  <style>
+    .white-text {
+      fill: white
+    }
+  </style>    
+  
+  <!-- Documentation -->
+  <script type="text/html" data-help-name="authenticatePaypal">
+    <p>Authenticate action</p>
+    
+    <h3>Inputs</h3>
+        <dl class="message-properties">
+            <dt>Name
+              <span class="property-type">string</span>
+            </dt>
+            <dd> the node's name </dd>
+            <dt>Client ID
+              <span class="property-type">string</span>
+            </dt>
+            <dd>Client </dd>
+            <dt>Client Secret
+              <span class="property-type">string</span>
+            </dt>
+            <dd>Password to connect to the API Service </dd>
+  
+        </dl>
+    
+     <h3>Outputs</h3>
+         <ol class="node-ports">
+             <li>Standard output
+                 <dl class="message-properties">
+                     <dt>payload <span class="property-type">string</span></dt>
+                     <dd>the standard output of the command.</dd>
+                 </dl>
+             </li>
+         </ol>
+    
+    <h3>References</h3>
+        <ul>
+            <li><a href="https://github.com/yousolution-cloud/node-red-contrib-you-paypal">@yousolution-cloud/node-red-contrib-you-paypal</a> - the nodes github repository</li>
+        </ul>
+  </script>

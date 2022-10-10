@@ -1,0 +1,945 @@
+{
+  "Add Tracking": [
+    {
+      "name": "Update or cancel tracking information for PayPal transaction",
+      "endpoint": "https://api.sandbox.paypal.com/v1/shipping/trackers/{tracker_id}",
+      "pathParams": ["tracker_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "method": "PUT"
+    },
+    {
+      "name": "Show tracking information",
+      "endpoint": "https://api.sandbox.paypal.com/v1/shipping/trackers/{tracker_id}",
+      "pathParams": ["tracker_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "method": "GET"
+    },
+    {
+      "name": "Add tracking information for multiple PayPal transactions",
+      "endpoint": "https://api.sandbox.paypal.com/v1/shipping/trackers-batch",
+      "pathParams": [],
+      "bodyParams": true,
+      "queryParams": false,
+      "method": "POST"
+    }
+  ],
+  "Catalog Products": [
+    {
+      "name": "List products",
+      "endpoint": "https://api.sandbox.paypal.com/v1/catalogs/products",
+      "pathParams": [],
+      "bodyParams": false,
+      "queryParams": true,
+      "formParams": false,
+      "method": "GET"
+    },
+    {
+      "name": "Create product",
+      "endpoint": "https://api.sandbox.paypal.com/v1/catalogs/products",
+      "pathParams": [],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Update product",
+      "endpoint": "https://api.sandbox.paypal.com/v1/catalogs/products/{product_id}",
+      "pathParams": ["product_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "PATCH"
+    },
+    {
+      "name": "Show product details",
+      "endpoint": "https://api.sandbox.paypal.com/v1/catalogs/products/{product_id}",
+      "pathParams": ["product_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "GET"
+    }
+  ],
+  "Disputes": [
+    {
+      "name": "List disputes",
+      "endpoint": "https://api.sandbox.paypal.com/v1/customer/disputes",
+      "pathParams": [],
+      "bodyParams": false,
+      "queryParams": true,
+      "formParams": false,
+      "method": "GET"
+    },
+    {
+      "name": "Partially update dispute",
+      "endpoint": "https://api.sandbox.paypal.com/v1/customer/disputes/{dispute_id}",
+      "pathParams": ["dispute_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "PATCH"
+    },
+    {
+      "name": "Show dispute details",
+      "endpoint": "https://api.sandbox.paypal.com/v1/customer/disputes/{dispute_id}",
+      "pathParams": ["dispute_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "GET"
+    },
+    {
+      "name": "Accept claim",
+      "endpoint": "https://api.sandbox.paypal.com/v1/customer/disputes/{dispute_id}/accept-claim",
+      "pathParams": ["dispute_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Accept offer to resolve dispute",
+      "endpoint": "https://api.sandbox.paypal.com/v1/customer/disputes/{dispute_id}/accept-offer",
+      "pathParams": ["dispute_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Acknowledge returned item",
+      "endpoint": "https://api.sandbox.paypal.com/v1/customer/disputes/{dispute_id}/acknowledge-return-item",
+      "pathParams": ["dispute_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": true,
+      "method": "POST"
+    },
+    {
+      "name": "Appeal dispute",
+      "endpoint": "https://api.sandbox.paypal.com/v1/customer/disputes/{dispute_id}/appeal",
+      "pathParams": ["dispute_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": true,
+      "method": "POST"
+    },
+    {
+      "name": "Deny offer to resolve dispute",
+      "endpoint": "https://api.sandbox.paypal.com/v1/customer/disputes/{dispute_id}/deny-offer",
+      "pathParams": ["dispute_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Escalate dispute to claim",
+      "endpoint": "https://api.sandbox.paypal.com/v1/customer/disputes/{dispute_id}/escalate",
+      "pathParams": ["dispute_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Make offer to resolve dispute",
+      "endpoint": "https://api.sandbox.paypal.com/v1/customer/disputes/{dispute_id}/make-offer",
+      "pathParams": ["dispute_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Provide evidence",
+      "endpoint": "https://api.sandbox.paypal.com/v1/customer/disputes/{dispute_id}/provide-evidence",
+      "pathParams": ["dispute_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": true,
+      "method": "POST"
+    },
+    {
+      "name": "Provide supporting information for dispute",
+      "endpoint": "https://api.sandbox.paypal.com/v1/customer/disputes/{dispute_id}/provide-supporting-info",
+      "pathParams": ["dispute_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": true,
+      "method": "POST"
+    },
+    {
+      "name": "Send message about dispute to other party",
+      "endpoint": "https://api.sandbox.paypal.com/v1/customer/disputes/{dispute_id}/send-message",
+      "pathParams": ["dispute_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": true,
+      "method": "POST"
+    }
+  ],
+  "Identity": [
+    {
+      "name": "Show user profile information",
+      "endpoint": "https://api.sandbox.paypal.com/v1/identity/oauth2/userinfo",
+      "pathParams": [],
+      "bodyParams": false,
+      "queryParams": true,
+      "formParams": false,
+      "method": "GET"
+    },
+    {
+      "name": "Set account properties",
+      "endpoint": "https://api.sandbox.paypal.com/v1/identity/account-settings",
+      "pathParams": [],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Disable account properties",
+      "endpoint": "https://api.sandbox.paypal.com/v1/identity/account-settings/deactivate",
+      "pathParams": [],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    }
+  ],
+  "Invoicing": [
+    {
+      "name": "Generate invoice number",
+      "endpoint": "https://api.sandbox.paypal.com/v2/invoicing/generate-next-invoice-number",
+      "pathParams": [],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "List invoices",
+      "endpoint": "https://api.sandbox.paypal.com/v2/invoicing/invoices",
+      "pathParams": [],
+      "bodyParams": false,
+      "queryParams": true,
+      "formParams": false,
+      "method": "GET"
+    },
+    {
+      "name": "Create draft invoice",
+      "endpoint": "https://api.sandbox.paypal.com/v2/invoicing/invoices",
+      "pathParams": [],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Delete invoice",
+      "endpoint": "https://api.sandbox.paypal.com/v2/invoicing/invoices/{invoice_id}",
+      "pathParams": ["invoice_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "DELETE"
+    },
+    {
+      "name": "Fully update invoice",
+      "endpoint": "https://api.sandbox.paypal.com/v2/invoicing/invoices/{invoice_id}",
+      "pathParams": ["invoice_id"],
+      "bodyParams": true,
+      "queryParams": true,
+      "formParams": false,
+      "method": "PUT"
+    },
+    {
+      "name": "Show invoice details",
+      "endpoint": "https://api.sandbox.paypal.com/v2/invoicing/invoices/{invoice_id}",
+      "pathParams": ["invoice_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "GET"
+    },
+    {
+      "name": "Cancel sent invoice",
+      "endpoint": "https://api.sandbox.paypal.com/v2/invoicing/invoices/{invoice_id}/cancel",
+      "pathParams": ["invoice_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Generate QR code",
+      "endpoint": "https://api.sandbox.paypal.com/v2/invoicing/invoices/{invoice_id}/generate-qr-code",
+      "pathParams": ["invoice_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Record payment for invoice",
+      "endpoint": "https://api.sandbox.paypal.com/v2/invoicing/invoices/{invoice_id}/payments",
+      "pathParams": ["invoice_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Delete external payment",
+      "endpoint": "https://api.sandbox.paypal.com/v2/invoicing/invoices/{invoice_id}/payments/{transaction_id}",
+      "pathParams": ["invoice_id", "transaction_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "DELETE"
+    },
+    {
+      "name": "Record refund for invoice",
+      "endpoint": "https://api.sandbox.paypal.com/v2/invoicing/invoices/{invoice_id}/refunds",
+      "pathParams": ["invoice_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Delete external refund",
+      "endpoint": "https://api.sandbox.paypal.com/v2/invoicing/invoices/{invoice_id}/refunds/{transaction_id}",
+      "pathParams": ["invoice_id", "transaction_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "DELETE"
+    },
+    {
+      "name": "Send invoice reminder",
+      "endpoint": "https://api.sandbox.paypal.com/v2/invoicing/invoices/{invoice_id}/remind",
+      "pathParams": ["invoice_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Send invoice",
+      "endpoint": "https://api.sandbox.paypal.com/v2/invoicing/invoices/{invoice_id}/send",
+      "pathParams": ["invoice_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Search for invoices",
+      "endpoint": "https://api.sandbox.paypal.com/v2/invoicing/search-invoices",
+      "pathParams": [],
+      "bodyParams": true,
+      "queryParams": true,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "List templates",
+      "endpoint": "https://api.sandbox.paypal.com/v2/invoicing/templates",
+      "pathParams": [],
+      "bodyParams": false,
+      "queryParams": true,
+      "formParams": false,
+      "method": "GET"
+    },
+    {
+      "name": "Create template",
+      "endpoint": "https://api.sandbox.paypal.com/v2/invoicing/templates",
+      "pathParams": [],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Delete template",
+      "endpoint": "https://api.sandbox.paypal.com/v2/invoicing/templates/{template_id}",
+      "pathParams": ["template_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "DELETE"
+    },
+    {
+      "name": "Fully update template",
+      "endpoint": "https://api.sandbox.paypal.com/v2/invoicing/templates/{template_id}",
+      "pathParams": ["template_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "PUT"
+    },
+    {
+      "name": "Show template details",
+      "endpoint": "https://api.sandbox.paypal.com/v2/invoicing/templates/{template_id}",
+      "pathParams": ["template_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "GET"
+    }
+  ],
+  "Orders": [
+    {
+      "name": "Create order",
+      "endpoint": "https://api.sandbox.paypal.com/v2/checkout/orders",
+      "pathParams": [],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Update order",
+      "endpoint": "https://api.sandbox.paypal.com/v2/checkout/orders/{order_id}",
+      "pathParams": ["order_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "PATCH"
+    },
+    {
+      "name": "Show order details",
+      "endpoint": "https://api.sandbox.paypal.com/v2/checkout/orders/{order_id}",
+      "pathParams": ["order_id"],
+      "bodyParams": false,
+      "queryParams": true,
+      "formParams": false,
+      "method": "GET"
+    },
+    {
+      "name": "Authorize payment for order",
+      "endpoint": "https://api.sandbox.paypal.com/v2/checkout/orders/{order_id}/authorize",
+      "pathParams": ["order_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Capture payment for order",
+      "endpoint": "https://api.sandbox.paypal.com/v2/checkout/orders/{order_id}/capture",
+      "pathParams": ["order_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Confirm the Order",
+      "endpoint": "https://api.sandbox.paypal.com/v2/checkout/orders/{order_id}/confirm-payment-source",
+      "pathParams": ["order_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    }
+  ],
+  "Partner referrals": [
+    {
+      "name": "Create partner referral",
+      "endpoint": "https://api.sandbox.paypal.com/v2/customer/partner-referrals",
+      "pathParams": [],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Show referral data",
+      "endpoint": "https://api.sandbox.paypal.com/v2/customer/partner-referrals/{partner_referral_id}",
+      "pathParams": ["partner_referral_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "GET"
+    }
+  ],
+  "Payment Experience": [
+    {
+      "name": "List web experience profiles",
+      "endpoint": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles",
+      "pathParams": [],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "GET"
+    },
+    {
+      "name": "Create web experience profile",
+      "endpoint": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles",
+      "pathParams": [],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Delete web experience profile",
+      "endpoint": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/{profile_id}",
+      "pathParams": ["profile_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "DELETE"
+    },
+    {
+      "name": "Partially update web experience profile",
+      "endpoint": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/{profile_id}",
+      "pathParams": ["profile_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "PATCH"
+    },
+    {
+      "name": "Update web experience profile",
+      "endpoint": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/{profile_id}",
+      "pathParams": ["profile_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "PUT"
+    },
+    {
+      "name": "Show web experience profile details by ID",
+      "endpoint": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/{profile_id}",
+      "pathParams": ["profile_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "GET"
+    }
+  ],
+  "Payments": [
+    {
+      "name": "Show details for authorized payment",
+      "endpoint": "https://api.sandbox.paypal.com/v2/payments/authorizations/{authorization_id}",
+      "pathParams": ["authorization_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "GET"
+    },
+    {
+      "name": "Capture authorized payment",
+      "endpoint": "https://api.sandbox.paypal.com/v2/payments/authorizations/{authorization_id}/capture",
+      "pathParams": ["authorization_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Reauthorize authorized payment",
+      "endpoint": "https://api.sandbox.paypal.com/v2/payments/authorizations/{authorization_id}/reauthorize",
+      "pathParams": ["authorization_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Void authorized payment",
+      "endpoint": "https://api.sandbox.paypal.com/v2/payments/authorizations/{authorization_id}/void",
+      "pathParams": ["authorization_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Show captured payment details",
+      "endpoint": "https://api.sandbox.paypal.com/v2/payments/captures/{capture_id}",
+      "pathParams": ["capture_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Refund captured payment",
+      "endpoint": "https://api.sandbox.paypal.com/v2/payments/captures/{capture_id}/refund",
+      "pathParams": ["capture_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Show refund details",
+      "endpoint": "https://api.sandbox.paypal.com/v2/payments/refunds/{refund_id}",
+      "pathParams": ["refund_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "GET"
+    }
+  ],
+  "Payouts": [
+    {
+      "name": "Create batch payout",
+      "endpoint": "https://api.sandbox.paypal.com/v1/payments/payouts",
+      "pathParams": [],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Show payout batch details",
+      "endpoint": "https://api.sandbox.paypal.com/v1/payments/payouts/{payout_batch_id}",
+      "pathParams": ["payout_batch_id"],
+      "bodyParams": false,
+      "queryParams": true,
+      "formParams": false,
+      "method": "GET"
+    },
+    {
+      "name": "Show payout item details",
+      "endpoint": "https://api.sandbox.paypal.com/v1/payments/payouts-item/{payout_item_id}",
+      "pathParams": ["payout_item_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "GET"
+    },
+    {
+      "name": "Cancel unclaimed payout item",
+      "endpoint": "https://api.sandbox.paypal.com/v1/payments/payouts-item/{payout_item_id}/cancel",
+      "pathParams": ["payout_item_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    }
+  ],
+  "Referenced Payouts": [
+    {
+      "name": "Create referenced batch payout",
+      "endpoint": "https://api.sandbox.paypal.com/v1/payments/referenced-payouts",
+      "pathParams": [],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "List items in referenced batch payout",
+      "endpoint": "https://api.sandbox.paypal.com/v1/payments/referenced-payouts/{payouts_batch_id}",
+      "pathParams": ["payouts_batch_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "GET"
+    },
+    {
+      "name": "Create referenced payout item",
+      "endpoint": "https://api.sandbox.paypal.com/v1/payments/referenced-payouts-items",
+      "pathParams": [],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Show referenced payout item details",
+      "endpoint": "https://api.sandbox.paypal.com/v1/payments/referenced-payouts-items/{payouts_item_id}",
+      "pathParams": ["payouts_item_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "GET"
+    }
+  ],
+  "Subscriptions": [
+    {
+      "name": "List plans",
+      "endpoint": "https://api.sandbox.paypal.com/v1/billing/plans",
+      "pathParams": [],
+      "bodyParams": false,
+      "queryParams": true,
+      "formParams": false,
+      "method": "GET"
+    },
+    {
+      "name": "Create plan",
+      "endpoint": "https://api.sandbox.paypal.com/v1/billing/plans",
+      "pathParams": [],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Update plan",
+      "endpoint": "https://api.sandbox.paypal.com/v1/billing/plans/{plan_id}",
+      "pathParams": ["plan_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "PATCH"
+    },
+    {
+      "name": "Show plan details",
+      "endpoint": "https://api.sandbox.paypal.com/v1/billing/plans/{plan_id}",
+      "pathParams": ["plan_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "GET"
+    },
+    {
+      "name": "Activate plan",
+      "endpoint": "https://api.sandbox.paypal.com/v1/billing/plans/{plan_id}/activate",
+      "pathParams": ["plan_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "GET"
+    },
+    {
+      "name": "Deactivate plan",
+      "endpoint": "https://api.sandbox.paypal.com/v1/billing/plans/{plan_id}/deactivate",
+      "pathParams": ["plan_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Update pricing",
+      "endpoint": "https://api.sandbox.paypal.com/v1/billing/plans/{plan_id}/update-pricing-schemes",
+      "pathParams": ["plan_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Create subscription",
+      "endpoint": "https://api.sandbox.paypal.com/v1/billing/subscriptions",
+      "pathParams": [],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Update subscription",
+      "endpoint": "https://api.sandbox.paypal.com/v1/billing/subscriptions/{subscription_id}",
+      "pathParams": ["subscription_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "PATCH"
+    },
+    {
+      "name": "Show subscription details",
+      "endpoint": "https://api.sandbox.paypal.com/v1/billing/subscriptions/{subscription_id}",
+      "pathParams": ["subscription_id"],
+      "bodyParams": false,
+      "queryParams": true,
+      "formParams": false,
+      "method": "GET"
+    },
+    {
+      "name": "Activate subscription",
+      "endpoint": "https://api.sandbox.paypal.com/v1/billing/subscriptions/{subscription_id}/activate",
+      "pathParams": ["subscription_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Cancel subscription",
+      "endpoint": "https://api.sandbox.paypal.com/v1/billing/subscriptions/{subscription_id}/cancel",
+      "pathParams": ["subscription_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Capture authorized payment on subscription",
+      "endpoint": "https://api.sandbox.paypal.com/v1/billing/subscriptions/{subscription_id}/capture",
+      "pathParams": ["subscription_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Revise plan or quantity of subscription",
+      "endpoint": "https://api.sandbox.paypal.com/v1/billing/subscriptions/{subscription_id}/revise",
+      "pathParams": ["subscription_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Suspend subscription",
+      "endpoint": "https://api.sandbox.paypal.com/v1/billing/subscriptions/{subscription_id}/suspend",
+      "pathParams": ["subscription_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "List transactions for subscription",
+      "endpoint": "https://api.sandbox.paypal.com/v1/billing/subscriptions/{subscription_id}/transactions",
+      "pathParams": ["subscription_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "GET"
+    }
+  ],
+  "Transaction Search": [
+    {
+      "name": "List transactions",
+      "endpoint": "https://api.sandbox.paypal.com/v1/reporting/transactions",
+      "pathParams": [],
+      "bodyParams": false,
+      "queryParams": true,
+      "formParams": false,
+      "method": "GET"
+    },
+    {
+      "name": "List all balances",
+      "endpoint": "https://api.sandbox.paypal.com/v1/reporting/balances",
+      "pathParams": [],
+      "bodyParams": false,
+      "queryParams": true,
+      "formParams": false,
+      "method": "GET"
+    }
+  ],
+  "Webhookks": [
+    {
+      "name": "List webhooks",
+      "endpoint": "https://api.sandbox.paypal.com/v1/notifications/webhooks",
+      "pathParams": [],
+      "bodyParams": false,
+      "queryParams": true,
+      "formParams": false,
+      "method": "GET"
+    },
+    {
+      "name": "Create webhook",
+      "endpoint": "https://api.sandbox.paypal.com/v1/notifications/webhooks",
+      "pathParams": [],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Delete webhook",
+      "endpoint": "https://api.sandbox.paypal.com/v1/notifications/webhooks/{webhook_id}",
+      "pathParams": ["webhook_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "DELETE"
+    },
+    {
+      "name": "Update webhook",
+      "endpoint": "https://api.sandbox.paypal.com/v1/notifications/webhooks/{webhook_id}",
+      "pathParams": ["webhook_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "PATCH"
+    },
+    {
+      "name": "Show webhook details",
+      "endpoint": "https://api.sandbox.paypal.com/v1/notifications/webhooks/{webhook_id}",
+      "pathParams": ["webhook_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "GET"
+    },
+    {
+      "name": "List event subscriptions for webhook",
+      "endpoint": "https://api.sandbox.paypal.com/v1/notifications/webhooks/{webhook_id}/event-types",
+      "pathParams": ["webhook_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "GET"
+    },
+    {
+      "name": "Verify webhook signature",
+      "endpoint": "https://api.sandbox.paypal.com/v1/notifications/verify-webhook-signatures",
+      "pathParams": [],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "GET"
+    },
+    {
+      "name": "List available events",
+      "endpoint": "https://api.sandbox.paypal.com/v1/notifications/webhooks-event-types",
+      "pathParams": [],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "GET"
+    },
+    {
+      "name": "List event notifications",
+      "endpoint": "https://api.sandbox.paypal.com/v1/notifications/webhooks-events",
+      "pathParams": [],
+      "bodyParams": false,
+      "queryParams": true,
+      "formParams": false,
+      "method": "GET"
+    },
+    {
+      "name": "Show event notification details",
+      "endpoint": "https://api.sandbox.paypal.com/v1/notifications/webhooks-events/{event_id}",
+      "pathParams": ["event_id"],
+      "bodyParams": false,
+      "queryParams": false,
+      "formParams": false,
+      "method": "GET"
+    },
+    {
+      "name": "Resend event notification",
+      "endpoint": "https://api.sandbox.paypal.com/v1/notifications/webhooks-events/{event_id}/resend",
+      "pathParams": ["event_id"],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    },
+    {
+      "name": "Simulate webhook event",
+      "endpoint": "https://api.sandbox.paypal.com/v1/notifications/simulate-event",
+      "pathParams": [],
+      "bodyParams": true,
+      "queryParams": false,
+      "formParams": false,
+      "method": "POST"
+    }
+  ]
+}

@@ -1,0 +1,307 @@
+<script type="text/javascript">
+  let resourceName = [];
+  let resourceData = [];
+
+  $.getJSON('resources', (data, status) => {
+    for(resource in data) {
+      resourceData = data;
+      resourceName.push(resource);
+    }
+  });
+
+  RED.nodes.registerType('apiPaypal',{
+    category: 'PayPal',
+    color: '#005ea6',
+    labelStyle: "white-text",
+    defaults: {
+      name: {value: ''},
+      resourceName: {value: ''},
+      resource: {value: ''},
+      queryParams: {value: ''},
+      bodyParams: {value: ''},
+      bodyParamsType: {value: ''},
+      formParams: {value: ''},
+      filename: {value: ''},
+      filenameType: {value: ''},
+      tracker_id: {value: ''},
+      tracker_idType: {value: ''},
+      product_id: {value: ''},
+      product_idType: {value: ''},
+      dispute_id: {value: ''},
+      dispute_idType: {value: ''},
+      invoice_id: {value: ''},
+      invoice_idType: {value: ''},
+      transaction_id: {value: ''},
+      transaction_idType: {value: ''},
+      template_id: {value: ''},
+      template_idType: {value: ''},
+      order_id: {value: ''},
+      order_idType: {value: ''},
+      partner_referral_id: {value: ''},
+      partner_referral_idType: {value: ''},
+      profile_id: {value: ''},
+      profile_idType: {value: ''},
+      authorization_id: {value: ''},
+      authorization_idType: {value: ''},
+      capture_id: {value: ''},
+      capture_idType: {value: ''},
+      refund_id: {value: ''},
+      refund_idType: {value: ''},
+      payout_batch_id: {value: ''},
+      payout_batch_idType: {value: ''},
+      payout_item_id: {value: ''},
+      payout_item_idType: {value: ''},
+      payouts_batch_id: {value: ''},
+      payouts_batch_idType: {value: ''},
+      payouts_item_id: {value: ''},
+      payouts_item_idType: {value: ''},
+      plan_id: {value: ''},
+      plan_idType: {value: ''},
+      subscription_id: {value: ''},
+      subscription_idType: {value: ''},
+      webhook_id: {value: ''},
+      webhook_idType: {value: ''},
+      event_id: {value: ''},
+      event_idType: {value: ''}
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: 'font-awesome/fa-credit-card',
+    label: function() {
+      return this.name || "API PayPal";
+    },
+
+    oneditprepare: function() {
+      resourceName.forEach((resource) => {
+        $('#node-input-resourceName')
+          .append($("<option></option>")
+                      .attr("value", resource)
+                      .text(resource)); 
+      });
+
+      // set the previous value
+      if (this.resourceName) {
+        $('#node-input-resourceName').val(this.resourceName);
+      }
+      
+      // OnChange of resourceName selection
+      $("#node-input-resourceName").change((event) => {
+        const resource = $("#node-input-resourceName").val();
+
+        $('#node-input-resource').empty();
+        $('#node-input-parameters').empty();
+
+        if(resourceData[resource]) {
+          resourceData[resource].forEach((action) => {
+          $('#node-input-resource')
+            .append($("<option></option>")
+                        .attr("value", action.name)
+                        .text(action.name)); 
+          });
+
+          // trick check if change with click or not
+          if(!event.originalEvent) {
+            $('#node-input-resource').val(this.resource);
+          }
+
+          // console.log(this.workflow_id)
+          setParameters(resourceData[resource], event, this);
+        }
+      });
+
+      // OnChange of resource selection
+      $("#node-input-resource").change((event) => {
+        const resourceName = $("#node-input-resourceName").val()
+
+        $('#node-input-parameters').empty();
+
+        if(resourceData[resourceName]) {
+          setParameters(resourceData[resourceName], event, this);
+
+          // trick check if change with click or not
+          if(!event.originalEvent) {
+            $('#node-input-resource').val(this.resource);
+          }
+        }
+      });
+      
+      function setParameters(resourceData, event, context) {
+        const resource = $("#node-input-resource").val();
+
+        $('#node-input-queryParams').empty();
+        $('#node-input-bodyParams').empty();
+
+        resourceData.forEach((action) => {
+            if (action.name == resource) {
+
+              if (action.queryParams) {
+                $('#node-input-parameters')
+                  .append($(`<div class="form-row"></div>`)
+                                .append([ 
+                                    $(`<label for="node-input-queryParams" style="min-width: 150px;"><i class="fa fa-gears"></i> QueryParams </label><br>`),
+                                    $(`<input type="text" id="node-input-queryParams">`).attr("value", '')])
+                          );
+
+                if(!event.originalEvent) {
+                  $('#node-input-queryParams').val(context.queryParams);
+                }
+
+                $("#node-input-queryParams").typedInput({
+                  default:"msg",
+                  types:["msg"],
+                  typeField: "#node-input-queryParamsType"
+                });
+              }
+
+              if (action.bodyParams) {
+                $('#node-input-parameters')
+                  .append($(`<div class="form-row"></div>`)
+                                .append([ 
+                                    $(`<label for="node-input-bodyParams" style="min-width: 150px;"><i class="fa fa-gears"></i> BodyParams </label><br>`),
+                                    $(`<input type="text" id="node-input-bodyParams">`).attr("value", ''),
+                                    $(`<input type="hidden" id="node-input-bodyParamsType">`)])
+                          );
+
+                // trick check if change with click or not
+                if(!event.originalEvent) {
+                  $('#node-input-bodyParams').val(context.bodyParams);
+                }
+
+                $("#node-input-bodyParams").typedInput({
+                  default:"msg",
+                  types:["msg"],
+                  typeField: "#node-input-bodyParamsType"
+                });
+              }
+
+              if (action.formParams) {
+                $('#node-input-parameters')
+                  .append($(`<div class="form-row"></div>`)
+                                .append([ 
+                                    $(`<label for="node-input-formParams" style="min-width: 150px;"><i class="fa fa-gears"></i> FormParams </label><br>`),
+                                    $(`<input type="text" id="node-input-formParams">`).attr("value", '')])
+                          );
+
+                $('#node-input-parameters')
+                  .append($(`<div class="form-row"></div>`)
+                                .append([ 
+                                    $(`<label for="node-input-filename" style="min-width: 150px;"><i class="fa fa-gears"></i> Filename </label><br>`),
+                                    $(`<input type="text" id="node-input-filename">`).attr("value", ''),
+                                    $(`<input type="hidden" id="node-input-filenameType">`)])
+                          );
+
+                // trick check if change with click or not
+                if(!event.originalEvent) {
+                  $('#node-input-formParams').val(context.formParams);
+                  $('#node-input-filename').val(context.filename);
+                  $('#node-input-filenameType').val(context.filenameType);
+                }
+
+                $("#node-input-formParams").typedInput({
+                  default:"msg",
+                  types:["msg"],
+                  typeField: "#node-input-formParamsType"
+                });
+
+                $("#node-input-filename").typedInput({
+                  default:"msg",
+                  types:["msg", "str"],
+                  typeField: "#node-input-filenameType"
+                });
+              }
+
+
+              action.pathParams.forEach((param, index) => {
+                $('#node-input-parameters')
+                  .append($(`<div class="form-row"></div>`)
+                                .append([ 
+                                    $(`<label for="node-input-type" style="min-width: 150px;"><i class="fa fa-gears"></i> ${param} </label><br>`),
+                                    $(`<input type="text" id="node-input-${param}">`).attr("value", ''),
+                                    $(`<input type="hidden" id="node-input-${param}Type">`)])
+                          );
+
+                // trick check if change with click or not
+                if(!event.originalEvent) {
+                  $(`#node-input-${param}`).val(context[param]);
+                  $(`#node-input-${param}Type`).val(context[`${param}Type`]);
+                }
+
+                $(`#node-input-${param}`).typedInput({
+                  default:"str",
+                  types:["msg", "str"],
+                  typeField: `#node-input-${param}Type`
+                });
+              });
+            }
+        });
+      }
+    }
+  });
+</script>
+  
+<script type="text/html" data-template-name="apiPaypal">
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name </label>
+    <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+
+ <div class="form-row">
+    <label for="node-input-resourceName"><i class="fa fa-gears"></i> Resource </label>
+    <select name="node-input-resourceName" id="node-input-resourceName">
+      <option></option>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-resource"><i class="fa fa-gears"></i> Action </label>
+    <select name="node-input-resource" id="node-input-resource">
+    </select>
+  </div>
+
+  <div id="node-input-parameters"></div>
+</script>
+
+<style>
+  .white-text {
+    fill: white
+  }
+</style>
+  
+<!-- Documentation -->
+<script type="text/html" data-help-name="apyPaypal">
+  <p>PayPal APIs</p>
+  
+  <h3>Inputs</h3>
+      <dl class="message-properties">
+          <dt>Name
+            <span class="property-type">string</span>
+          </dt>
+          <dd> the node's name </dd>
+          <dt>Resource
+            <span class="property-type">string</span>
+          </dt>
+          <dd> working resource  </dd>
+          <dt> Action
+            <span class="property-type">string</span>
+          </dt>
+          <dd> the action to perform on the resource </dd>
+      </dl>
+  
+   <h3>Outputs</h3>
+       <ol class="node-ports">
+           <li>Standard output
+               <dl class="message-properties">
+                   <dt>payload <span class="property-type">string</span></dt>
+                   <dd>the standard output of the action.</dd>
+               </dl>
+           </li>
+       </ol>
+  
+  <h3>Details</h3>
+      <p>this node is used to perform PayPal APIs</p>
+  
+  <h3>References</h3>
+      <ul>
+          <li><a href="https://github.com/yousolution-cloud/node-red-contrib-you-paypal">@yousolution-cloud/node-red-contrib-you-paypal</a> - the nodes github repository</li>
+      </ul>
+</script>
